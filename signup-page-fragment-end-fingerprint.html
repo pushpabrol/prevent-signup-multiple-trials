@@ -1,0 +1,24 @@
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Use CSS selectors to find the email input field
+
+    const fpPromise = import('https://fpjscdn.net/v3/xRzZGGO7rSZeJIPGlshV')
+      .then(FingerprintJS => FingerprintJS.load())
+  
+    // Get the visitorId when you need it.
+    fpPromise
+      .then(fp => fp.get())
+      .then(result => {
+        const visitorId = result.visitorId;
+        const requestId = result.requestId;
+        document.getElementById("ulp-visitorId").value = visitorId;
+        document.getElementById("ulp-requestId").value = visitorId;
+        console.log(visitorId);
+        
+      })
+
+})
+
+</script>
+
